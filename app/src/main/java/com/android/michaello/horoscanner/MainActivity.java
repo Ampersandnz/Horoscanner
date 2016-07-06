@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    public final static String EXTRA_MESSAGE = "com.android.michaello.horoscanner.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textField = (TextView) findViewById(R.id.textField);
 
         String message = editText.getText().toString();
+        textField.setText(message);
     }
 
     @Override
