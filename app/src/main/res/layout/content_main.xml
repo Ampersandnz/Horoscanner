@@ -33,4 +33,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_default" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtContent" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_TEST"
+            android:id="@+id/button" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgview"
+            android:contentDescription="@string/default_qr" />
+    </LinearLayout>
 </LinearLayout>

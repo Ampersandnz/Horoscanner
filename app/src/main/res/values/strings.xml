@@ -3,6 +3,9 @@
     <string name="app_name">Horoscanner</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_setText">Set text</string>
+    <string name="button_TEST">PROCESS TEST IMAGE</string>
     <string name="action_settings">Settings</string>
     <string name="text_default">MICHAEL TEST</string>
+    <string name="error_no_detector">Could not set up the detector!</string>
+    <string name="default_qr">Default hardcoded QR code image for testing</string>
 </resources>
