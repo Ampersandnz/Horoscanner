@@ -6,6 +6,9 @@ End goal is to hash the barcode with the current date (and possibly some user in
 - A set of lucky numbers
 - An animal of the day (with picture)
 - Some inspiration quote-type thing
--- Ideally generated via neural network/learning algorithm/Markov process, although this may end up being unreadable
 - A colour
 - Anything else I can think of that seems interesting
+
+Wishlist:
+- Generate text via some kind of neural network/learning algorithm/markov process
+- Provide facial recognition as well as barcode scanning (makes a lot more sense, although anyone who believes in horoscopes will probably be okay with scanning a random object to tell their specific future anyway)
