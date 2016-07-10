@@ -2,59 +2,71 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.android.michaello.horoscanner.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/txt_scan_btn_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_scan_header"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/edit_message"
-            android:layout_weight="99"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/edit_message" />
+    <LinearLayout
+        android:id="@+id/list_scan_buttons"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_scan_test_image"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_setText"
-            android:onClick="setText" />
+            android:onClick="scan"
+            android:text="@string/btn_scan_test_image" />
+
+        <Button
+            android:id="@+id/btn_scan_test_text"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="scan"
+            android:text="@string/btn_scan_test_text" />
+
+        <Button
+            android:id="@+id/btn_scan_test_barcode"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="scan"
+            android:text="@string/btn_scan_test_barcode" />
+
+        <Button
+            android:id="@+id/btn_scan_test_face"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="scan"
+            android:text="@string/btn_scan_test_face" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textField"
+        android:id="@+id/txt_scan_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_default" />
+        android:text="" />
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/img_scan_result__test_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:contentDescription="@string/default_qr" />
 
-        <TextView
-            android:text=""
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtContent" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_TEST"
-            android:id="@+id/button" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imgview"
-            android:contentDescription="@string/default_qr" />
-    </LinearLayout>
 </LinearLayout>
