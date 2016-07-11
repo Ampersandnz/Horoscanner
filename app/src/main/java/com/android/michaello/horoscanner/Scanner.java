@@ -1,10 +1,10 @@
 package com.android.michaello.horoscanner;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Michael on 10/07/2016.
  */
 public interface Scanner {
-    String scan();
-
-    //TODO: Create scanResult class
+    ScanResult scan(Bitmap b);
 }

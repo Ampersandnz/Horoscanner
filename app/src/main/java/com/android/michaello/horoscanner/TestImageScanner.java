@@ -2,7 +2,6 @@ package com.android.michaello.horoscanner;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.SparseArray;
 
 import com.google.android.gms.vision.Frame;
@@ -20,12 +19,10 @@ public class TestImageScanner implements Scanner {
     }
 
     @Override
-    public String scan() {
-        //ImageView myImageView = (ImageView) findViewById(R.id.img_scan_result__test_image);
-        Bitmap myBitmap = BitmapFactory.decodeResource(
-                context.getResources(),
-                R.drawable.puppy);
-        //myImageView.setImageBitmap(myBitmap);
+    public ScanResult scan(Bitmap b) {
+        ScanResult result = new ScanResult();
+
+        result.setBitmap(b);
 
         BarcodeDetector detector =
                 new BarcodeDetector.Builder(context)
@@ -33,14 +30,20 @@ public class TestImageScanner implements Scanner {
                         .build();
 
         if (!detector.isOperational()) {
-            return context.getString(R.string.error_no_detector);
+            result.setString(context.getString(R.string.error_no_detector));
         }
 
-        Frame frame = new Frame.Builder().setBitmap(myBitmap).build();
+        Frame frame = new Frame.Builder().setBitmap(b).build();
         SparseArray<Barcode> barcodes = detector.detect(frame);
 
-        Barcode thisCode = barcodes.valueAt(0);
+        //TODO: Handle multiple barcodes
+        if (barcodes.size() == 0) {
+            result.setString(context.getString(R.string.error_no_barcode));
+        } else {
+            Barcode thisCode = barcodes.valueAt(0);
+            result.setString(thisCode.rawValue);
+        }
 
-        return thisCode.rawValue;
+        return result;
     }
 }

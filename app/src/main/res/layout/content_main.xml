@@ -24,27 +24,11 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_scan_test_image"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="scan"
-            android:text="@string/btn_scan_test_image" />
-
-        <Button
-            android:id="@+id/btn_scan_test_text"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="scan"
-            android:text="@string/btn_scan_test_text" />
-
-        <Button
             android:id="@+id/btn_scan_test_barcode"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="scan"
+            android:onClick="onButtonClick"
             android:text="@string/btn_scan_test_barcode" />
 
         <Button
@@ -52,21 +36,25 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="scan"
+            android:onClick="onButtonClick"
             android:text="@string/btn_scan_test_face" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txt_scan_result"
+        android:id="@+id/txt_scan_result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txt_scan_result_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="" />
 
     <ImageView
-        android:id="@+id/img_scan_result__test_image"
+        android:id="@+id/img_scan_result_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/default_qr" />
-
-
+        android:contentDescription="@string/img_photo" />
 </LinearLayout>
