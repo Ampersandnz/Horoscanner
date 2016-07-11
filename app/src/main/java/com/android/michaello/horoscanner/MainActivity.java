@@ -1,21 +1,14 @@
 package com.android.michaello.horoscanner;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.io.File;
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private TextView _txtView;
@@ -23,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageView _imageView;
     private Scanner _scanner;
     private ScanResult _lastScan;
+    private String _currentPhotoPath;
 
     static final int REQUEST_TAKE_PHOTO = 1;
-    private static final String CAPTURE_IMAGE_FILE_PROVIDER = "com.android.michaello.horoscanner.fileprovider";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.btn_scan_test_barcode:
                 _scanner = new TestImageScanner(getApplicationContext());
-                openCamera();
+                openCameraActivity();
                 break;
 
             default:
@@ -64,34 +57,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void openCamera() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createNewImageInCache();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this, CAPTURE_IMAGE_FILE_PROVIDER, photoFile);
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(intent, REQUEST_TAKE_PHOTO);
-            }
-        }
+    private void openCameraActivity() {
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
             //Bitmap imageBitmap = BitmapFactory.decodeFile(_currentPhotoPath);
-            _imageView.setImageBitmap(imageBitmap);
 
             //_lastScan = _scanner.scan(imageBitmap);
 
@@ -105,21 +77,5 @@ public class MainActivity extends AppCompatActivity {
 //
 //            _imageView.setImageBitmap(bitmapResult);
         }
-    }
-
-    private File createNewImageInCache() throws IOException {
-        String imageFileName = "currentPhoto.jpg";
-
-        File path = new File(getCacheDir(), "images/");
-
-        if (!path.exists()) {
-            path.mkdirs();
-        }
-
-        File image = new File(path, imageFileName);
-
-        image.deleteOnExit();
-
-        return image;
     }
 }
