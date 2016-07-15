@@ -9,12 +9,25 @@
     tools:context="com.android.michaello.horoscanner.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:id="@+id/txt_scan_btn_header"
+    <ImageView
+        android:id="@+id/img_scan_result_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/txt_scan_header"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:contentDescription="@string/img_photo"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/txt_scan_result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txt_scan_result_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
 
     <LinearLayout
         android:id="@+id/list_scan_buttons"
@@ -39,22 +52,4 @@
             android:onClick="onButtonClick"
             android:text="@string/btn_scan_test_face" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/txt_scan_result_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
-
-    <TextView
-        android:id="@+id/txt_scan_result_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
-
-    <ImageView
-        android:id="@+id/img_scan_result_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/img_photo" />
 </LinearLayout>

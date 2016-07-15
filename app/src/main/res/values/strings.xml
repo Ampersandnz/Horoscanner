@@ -16,7 +16,5 @@
 
     <string name="default_qr">Default hardcoded QR code image for testing</string>
 
-    <string name="txt_scan_header">Test various scan types</string>
-
     <string name="img_photo">The most recent photo scanned</string>
 </resources>
