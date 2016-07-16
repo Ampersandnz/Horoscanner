@@ -1,45 +1,48 @@
 package com.android.michaello.horoscanner;
 
 import android.graphics.Bitmap;
+import android.graphics.Color;
 
 /**
  * Created by michaello on 11/7/2016.
  */
 public class ScanResult {
-    private String stringResult;
-    private int intResult;
-    private Bitmap bitmapResult;
+    private String _stringResult;
+    private int _intResult;
+    private Bitmap _bitmapResult;
+    private Color _colorResult;
 
     public ScanResult() {
-        stringResult = null;
-        intResult = -1;
-        bitmapResult = null;
+        _stringResult = null;
+        _intResult = -1;
+        _bitmapResult = null;
+        _colorResult = null;
     }
 
     public String getString() {
-        return stringResult;
+        return _stringResult;
     }
 
     public ScanResult setString(String s) {
-        stringResult = s;
+        _stringResult = s;
         return this;
     }
 
     public int getNumber() {
-        return intResult;
+        return _intResult;
     }
 
     public ScanResult setNumber(int i) {
-        intResult = i;
+        _intResult = i;
         return this;
     }
 
-    public Bitmap getBitmap() {
-        return bitmapResult;
+    public Color getColor() {
+        return _colorResult;
     }
 
-    public ScanResult setBitmap(Bitmap b) {
-        bitmapResult = b;
+    public ScanResult setColor(Color b) {
+        _colorResult = b;
         return this;
     }
 }

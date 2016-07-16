@@ -11,18 +11,16 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 /**
  * Created by Michael on 10/07/2016.
  */
-public class TestImageScanner implements Scanner {
+public class BarcodeScanner implements Scanner {
     private Context context;
 
-    public TestImageScanner(Context context) {
+    public BarcodeScanner(Context context) {
         this.context = context;
     }
 
     @Override
     public ScanResult scan(Bitmap b) {
         ScanResult result = new ScanResult();
-
-        result.setBitmap(b);
 
         BarcodeDetector detector =
                 new BarcodeDetector.Builder(context)
