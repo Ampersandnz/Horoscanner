@@ -7,9 +7,8 @@
     <string name="btn_scan_test_barcode">Barcode</string>
     <string name="btn_scan_test_face">Face</string>
 
-    <string name="error_no_detector">Could not set up the barcode detector!</string>
+    <string name="error_no_detector">Could not set up the detector.</string>
     <string name="error_no_scanner">No scanner of this type exists.</string>
-    <string name="error_no_barcode">No barcodes found in image.</string>
     <string name="error_no_face">No faces found in image.</string>
 
     <string name="scan_result_test">Test scanner return value</string>

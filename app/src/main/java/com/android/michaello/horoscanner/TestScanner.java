@@ -9,9 +9,6 @@ import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 
-/**
- * Created by Michael on 10/07/2016.
- */
 public class TestScanner implements Scanner {
     private Context context;
 
@@ -39,12 +36,11 @@ public class TestScanner implements Scanner {
         Frame frame = new Frame.Builder().setBitmap(b).build();
         SparseArray<Barcode> barcodes = detector.detect(frame);
 
-        //TODO: Handle multiple barcodes
-        if (barcodes.size() == 0) {
-            result.setString(context.getString(R.string.error_no_barcode));
-        } else {
+        if (barcodes.size() != 0) {
             Barcode thisCode = barcodes.valueAt(0);
             result.setString(thisCode.rawValue);
+        } else {
+            result.setString(context.getString(R.string.error_no_barcode));
         }
 
         return result;

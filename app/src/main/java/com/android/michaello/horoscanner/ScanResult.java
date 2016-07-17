@@ -1,21 +1,15 @@
 package com.android.michaello.horoscanner;
 
-import android.graphics.Bitmap;
 import android.graphics.Color;
 
-/**
- * Created by michaello on 11/7/2016.
- */
 public class ScanResult {
     private String _stringResult;
     private int _intResult;
-    private Bitmap _bitmapResult;
     private Color _colorResult;
 
     public ScanResult() {
         _stringResult = null;
         _intResult = -1;
-        _bitmapResult = null;
         _colorResult = null;
     }
 
