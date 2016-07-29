@@ -24,32 +24,20 @@
         android:text="" />
 
     <TextView
+        android:id="@+id/txt_scan_result_text_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
         android:id="@+id/txt_scan_result_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="" />
 
-    <LinearLayout
-        android:id="@+id/list_scan_buttons"
-        style="?android:attr/buttonBarStyle"
+    <TextView
+        android:id="@+id/txt_scan_result_number_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_scan_test_barcode"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onButtonClick"
-            android:text="@string/btn_scan_test_barcode" />
-
-        <Button
-            android:id="@+id/btn_scan_test_face"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onButtonClick"
-            android:text="@string/btn_scan_test_face" />
-    </LinearLayout>
+        android:text="" />
 </LinearLayout>
