@@ -40,4 +40,80 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="" />
+
+    <TextView
+        android:id="@+id/txt_results_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/txt_results_title" />
+
+    <!--android:visibility="invisible"-->
+    <!--TODO: Make invisible initially, and show after results have been generated-->
+
+    <LinearLayout
+        android:id="@+id/layout_results"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_results_numbers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_luckyNums_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_luckyNums_label" />
+
+            <TextView
+                android:id="@+id/txt_luckyNums_numbers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_results_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_advice_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_advice_label" />
+
+            <TextView
+                android:id="@+id/txt_advice_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_results_colour"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_colour_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_colour_label" />
+
+            <!--TODO: Change this to show the colour itself-->
+
+            <TextView
+                android:id="@+id/txt_colour_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

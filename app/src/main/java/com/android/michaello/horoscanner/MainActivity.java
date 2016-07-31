@@ -21,17 +21,16 @@ import com.google.android.gms.vision.face.Face;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_TAKE_PHOTO = 1;
-    private TextView _numView;
-    private TextView _numView2;
-    private TextView _txtView;
-    private TextView _txtView2;
-    private ImageView _imageView;
-    //TODO: Add an ImageView for a solid colour block
     private FaceScanner _scanner;
     private Face _lastFace;
     private String _currentPhotoPath;
     private float _scaleFactorX;
     private float _scaleFactorY;
+    private TextView _numView;
+    private TextView _numView2;
+    private TextView _txtView;
+    private TextView _txtView2;
+    private ImageView _imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +56,6 @@ public class MainActivity extends AppCompatActivity {
             default:
                 _scanner = null;
                 _lastFace = null;
-                _txtView.setText(R.string.error_no_scanner);
-                _txtView2.setText("");
-                _numView.setText("");
-                _numView2.setText("");
         }
     }
 
@@ -81,14 +76,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == Activity.RESULT_OK) {
+            //TODO: Do this in a background task somehow
             _scanner = new FaceScanner(getApplicationContext());
             _lastFace = _scanner.scan(Utility.getBitmapFromFile(_currentPhotoPath));
 
             if (_lastFace != null) {
-                setImage(_currentPhotoPath);
                 displayResults();
             } else {
-                setImage(null);
                 displayResults();
             }
         }
@@ -140,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             bmOptions.inSampleSize = scaleFactor;
             bmOptions.inMutable = true;
 
-            Bitmap bitmap = BitmapFactory.decodeFile(filePath, bmOptions);
+            final Bitmap bitmap = BitmapFactory.decodeFile(filePath, bmOptions);
             _scaleFactorX = (float) bitmap.getWidth() / (float) photoW;
             _scaleFactorY = (float) bitmap.getHeight() / (float) photoH;
 
@@ -160,19 +154,16 @@ public class MainActivity extends AppCompatActivity {
             numString2 = "";
         } else {
             txtString = "Object: " + _lastFace.toString();
-            txtString2 = "Hashed value: " + _lastFace.hashCode();
+            txtString2 = "HashCode: " + _lastFace.hashCode();
             numString = "Size: " + _lastFace.getWidth() + " x " + _lastFace.getHeight();
             numString2 = "Coordinates: (" + _lastFace.getPosition().x + ", " + _lastFace.getPosition().y + ")";
         }
+
+        setImage(_currentPhotoPath);
 
         _numView.setText(numString);
         _numView2.setText(numString2);
         _txtView.setText(txtString);
         _txtView2.setText(txtString2);
-        //TODO: _colorView.setColor(result.getColor());
     }
 }
-
-//TODO: Hash the facial features in some way (hopefully will be reasonably consistent across multiple photos)
-//Or at least investigate how face.HashCode() is generated
-//TODO: Move the scanning into a background thread to prevent the ~.5 second UI freeze that is currently occurring when a photo is taken

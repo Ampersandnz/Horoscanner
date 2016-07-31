@@ -10,5 +10,10 @@
     <string name="error_no_scanner">No scanner of this type exists.</string>
     <string name="error_no_face">No faces found in image.</string>
 
+    <string name="txt_results_title">Your horoscope:</string>
+    <string name="txt_luckyNums_label">Today\'s lucky numbers:</string>
+    <string name="txt_advice_label">Advice for the day:</string>
+    <string name="txt_colour_label">Colour of the day:</string>
+
     <string name="img_photo">The most recent photo scanned</string>
 </resources>
