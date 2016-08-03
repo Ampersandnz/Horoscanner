@@ -26,10 +26,13 @@ public class MainActivity extends AppCompatActivity {
     private String _currentPhotoPath;
     private float _scaleFactorX;
     private float _scaleFactorY;
-    private TextView _numView;
-    private TextView _numView2;
-    private TextView _txtView;
-    private TextView _txtView2;
+    private TextView _DEBUGnumView;
+    private TextView _DEBUGnumView2;
+    private TextView _DEBUGtxtView;
+    private TextView _DEBUGtxtView2;
+    private TextView _txtViewLuckyNumbers;
+    private TextView _txtViewAdvice;
+    private TextView _txtViewColour;
     private ImageView _imageView;
 
     @Override
@@ -40,10 +43,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        _numView = (TextView) findViewById(R.id.txt_scan_result_number);
-        _numView2 = (TextView) findViewById(R.id.txt_scan_result_number_2);
-        _txtView = (TextView) findViewById(R.id.txt_scan_result_text);
-        _txtView2 = (TextView) findViewById(R.id.txt_scan_result_text_2);
+        _DEBUGnumView = (TextView) findViewById(R.id.txt_scan_result_number);
+        _DEBUGnumView2 = (TextView) findViewById(R.id.txt_scan_result_number_2);
+        _DEBUGtxtView = (TextView) findViewById(R.id.txt_scan_result_text);
+        _DEBUGtxtView2 = (TextView) findViewById(R.id.txt_scan_result_text_2);
+        _txtViewLuckyNumbers = (TextView) findViewById(R.id.txt_luckyNums_numbers);
+        _txtViewAdvice = (TextView) findViewById(R.id.txt_advice_text);
+        _txtViewColour = (TextView) findViewById(R.id.txt_colour_text);
         _imageView = (ImageView) findViewById(R.id.img_scan_result_image);
     }
 
@@ -145,25 +151,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayResults() {
-        String numString, numString2, txtString, txtString2;
+        String faceDimensionsString, facePositionString, faceAsString, hashCodeString, luckyNumbersString, adviceString, colourString;
 
         if (_lastFace == null) {
-            txtString = getString(R.string.error_no_face);
-            txtString2 = "";
-            numString = "";
-            numString2 = "";
+            faceAsString = "";
+            hashCodeString = "";
+            faceDimensionsString = "";
+            facePositionString = "";
+            luckyNumbersString = "";
+            adviceString = "";
+            colourString = "";
         } else {
-            txtString = "Object: " + _lastFace.toString();
-            txtString2 = "HashCode: " + _lastFace.hashCode();
-            numString = "Size: " + _lastFace.getWidth() + " x " + _lastFace.getHeight();
-            numString2 = "Coordinates: (" + _lastFace.getPosition().x + ", " + _lastFace.getPosition().y + ")";
+            faceAsString = _lastFace.toString();
+            hashCodeString = "" + _lastFace.hashCode();
+            faceDimensionsString = _lastFace.getWidth() + " x " + _lastFace.getHeight();
+            facePositionString = "(" + _lastFace.getPosition().x + ", " + _lastFace.getPosition().y + ")";
+            luckyNumbersString = (_lastFace.hashCode() % 61) + ", " + (_lastFace.hashCode() % 75) + ", " + (_lastFace.hashCode() % 99) + ", " + (_lastFace.hashCode() % 100) + ", " + (_lastFace.hashCode() % 85);
+            adviceString = getString(R.string.string_advice_default);
+            colourString = getString(R.string.string_colour_default);
+            ;
         }
 
         setImage(_currentPhotoPath);
 
-        _numView.setText(numString);
-        _numView2.setText(numString2);
-        _txtView.setText(txtString);
-        _txtView2.setText(txtString2);
+        _DEBUGnumView.setText(faceDimensionsString);
+        _DEBUGnumView2.setText(facePositionString);
+        _DEBUGtxtView.setText(faceAsString);
+        _DEBUGtxtView2.setText(hashCodeString);
+        _txtViewLuckyNumbers.setText(luckyNumbersString);
+        _txtViewAdvice.setText(adviceString);
+        _txtViewColour.setText(colourString);
     }
 }

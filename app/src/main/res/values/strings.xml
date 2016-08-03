@@ -15,5 +15,8 @@
     <string name="txt_advice_label">Advice for the day:</string>
     <string name="txt_colour_label">Colour of the day:</string>
 
+    <string name="string_advice_default">Do the thing, win the points!</string>
+    <string name="string_colour_default">Bland as fuck. Like, maybe a sort of pale cream?</string>
+
     <string name="img_photo">The most recent photo scanned</string>
 </resources>
