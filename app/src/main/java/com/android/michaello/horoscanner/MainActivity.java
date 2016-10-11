@@ -169,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
             luckyNumbersString = (_lastFace.hashCode() % 61) + ", " + (_lastFace.hashCode() % 75) + ", " + (_lastFace.hashCode() % 99) + ", " + (_lastFace.hashCode() % 100) + ", " + (_lastFace.hashCode() % 85);
             adviceString = getString(R.string.string_advice_default);
             colourString = getString(R.string.string_colour_default);
-            ;
         }
 
         setImage(_currentPhotoPath);
